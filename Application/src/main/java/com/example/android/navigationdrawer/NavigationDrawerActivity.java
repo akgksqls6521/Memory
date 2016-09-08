@@ -23,6 +23,7 @@ import android.app.FragmentTransaction;
 import android.app.SearchManager;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
@@ -63,7 +64,7 @@ import android.widget.Toast;
  * An action should be an operation performed on the current contents of the window,
  * for example enabling or disabling a data overlay on top of the current content.</p>
  */
-public class NavigationDrawerActivity extends Activity implements PlanetAdapter.OnItemClickListener {
+public class NavigationDrawerActivity extends Activity implements PlanetAdapter.OnItemClickListener, View.OnClickListener {
     private DrawerLayout mDrawerLayout;
     private RecyclerView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
@@ -71,6 +72,7 @@ public class NavigationDrawerActivity extends Activity implements PlanetAdapter.
     private CharSequence mDrawerTitle;
     private CharSequence mTitle;
     private String[] mPlanetTitles;
+    static ImageView iv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -169,7 +171,7 @@ public class NavigationDrawerActivity extends Activity implements PlanetAdapter.
 
     private void selectItem(int position) {
         // update the main content by replacing fragments
-        Fragment fragment = PlanetFragment.newInstance(position);
+        Fragment fragment = PlanetFragment.newInstance(position,this);
 
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();
@@ -206,17 +208,24 @@ public class NavigationDrawerActivity extends Activity implements PlanetAdapter.
         mDrawerToggle.onConfigurationChanged(newConfig);
     }
 
+    @Override
+    public void onClick(View v) {
+        Intent intent=new Intent(this,ViewPagerActivity.class);
+        startActivity(intent);
+    }
+
     /**
      * Fragment that appears in the "content_frame", shows a planet
      */
     public static class PlanetFragment extends Fragment {
         public static final String ARG_PLANET_NUMBER = "planet_number";
-
+        static NavigationDrawerActivity m_nda;
         public PlanetFragment() {
             // Empty constructor required for fragment subclasses
         }
 
-        public static Fragment newInstance(int position) {
+        public static Fragment newInstance(int position, NavigationDrawerActivity nda) {
+            m_nda=nda;
             Fragment fragment = new PlanetFragment();
             Bundle args = new Bundle();
             args.putInt(PlanetFragment.ARG_PLANET_NUMBER, position);
@@ -229,7 +238,7 @@ public class NavigationDrawerActivity extends Activity implements PlanetAdapter.
                                  Bundle savedInstanceState) {
             View rootView=null;
             int imageId=0;
-            ImageView iv=null;
+            iv=null;
             int i = getArguments().getInt(ARG_PLANET_NUMBER);
             String planet = getResources().getStringArray(R.array.planets_array)[i];
             if(i==0){
@@ -247,6 +256,8 @@ public class NavigationDrawerActivity extends Activity implements PlanetAdapter.
                 imageId = getResources().getIdentifier("hanin", "drawable", getActivity().getPackageName());
                 iv = ((ImageView) rootView.findViewById(R.id.image_tea));
             }
+            iv=((ImageView)rootView.findViewById(R.id.image_tea));
+            iv.setOnClickListener(m_nda);
             iv.setImageResource(imageId);
             getActivity().setTitle(planet);
             return rootView;
