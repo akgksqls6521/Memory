@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent" >
+
+<GridLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:columnCount="2"
+    android:rowCount="2"
+    android:horizontalSpacing="10dp"
+    android:verticalSpacing="10dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:gravity="center"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView android:id="@+id/image_fri"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/f3"/>
+            <ImageView
+                android:id="@id/image_fri"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/f4"/>
+            <ImageView
+                android:id="@id/image_fri"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/f3"/>
+            <ImageView
+                android:id="@id/image_fri"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/f7"/>
+    <ImageView
+        android:id="@id/image_fri"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/f1"/>
+    <ImageView
+        android:id="@id/image_fri"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/f8"/>
+    <ImageView
+        android:id="@id/image_fri"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/f3"/>
+    <ImageView
+        android:id="@id/image_fri"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/f2"/>
+
+    </GridLayout>
+    </ScrollView>

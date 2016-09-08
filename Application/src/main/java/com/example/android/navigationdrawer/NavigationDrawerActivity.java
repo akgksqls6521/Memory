@@ -36,8 +36,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import java.util.Locale;
-
 /**
  * This example illustrates a common usage of the DrawerLayout widget
  * in the Android support library.
@@ -229,15 +227,27 @@ public class NavigationDrawerActivity extends Activity implements PlanetAdapter.
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_planet, container, false);
+            View rootView=null;
+            int imageId=0;
+            ImageView iv=null;
             int i = getArguments().getInt(ARG_PLANET_NUMBER);
             String planet = getResources().getStringArray(R.array.planets_array)[i];
-
-            int imageId = getResources().getIdentifier(planet.toLowerCase(Locale.getDefault()),
-                    "drawable", getActivity().getPackageName());
-            ImageView iv = ((ImageView) rootView.findViewById(R.id.image));
+            if(i==0){
+                rootView=inflater.inflate(R.layout.fragment_family,container,false);
+                imageId = getResources().getIdentifier("hanin","drawable", getActivity().getPackageName());
+                iv = ((ImageView) rootView.findViewById(R.id.image_fam));
+            }
+            if(i==1){
+                rootView=inflater.inflate(R.layout.fragment_friend,container,false);
+                imageId = getResources().getIdentifier("hanin","drawable", getActivity().getPackageName());
+                iv = ((ImageView) rootView.findViewById(R.id.image_fri));
+            }
+            if(i==2) {
+                rootView = inflater.inflate(R.layout.fragment_teacher, container, false);
+                imageId = getResources().getIdentifier("hanin", "drawable", getActivity().getPackageName());
+                iv = ((ImageView) rootView.findViewById(R.id.image_tea));
+            }
             iv.setImageResource(imageId);
-
             getActivity().setTitle(planet);
             return rootView;
         }
