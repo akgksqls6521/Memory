@@ -27,15 +27,17 @@
             android:layout_height="fill_parent"
             android:paddingRight="5px" >
             <ImageView
-                android:id="@+id/image_fam"
+                android:id="@+id/image_fam1"
                 android:src="@drawable/f1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:background="@android:color/black"
                 android:gravity="center"
-                android:padding="32dp" />
+                android:padding="32dp"
+                android:adjustViewBounds="true"
+                />
             <ImageView
-                android:id="@id/image_fam"
+                android:id="@+id/image_fam2"
                 android:src="@drawable/f2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -43,7 +45,7 @@
                 android:gravity="center"
                 android:padding="32dp" />
             <ImageView
-                android:id="@id/image_fam"
+                android:id="@+id/image_fam3"
                 android:src="@drawable/f3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

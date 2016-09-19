@@ -244,7 +244,10 @@ public class NavigationDrawerActivity extends Activity implements PlanetAdapter.
             if(i==0){
                 rootView=inflater.inflate(R.layout.fragment_family,container,false);
                 imageId = getResources().getIdentifier("hanin","drawable", getActivity().getPackageName());
-                iv = ((ImageView) rootView.findViewById(R.id.image_fam));
+                iv = ((ImageView) rootView.findViewById(R.id.image_fam1));
+//                iv = ((ImageView) rootView.findViewById(R.id.image_fam2));
+//                iv = ((ImageView) rootView.findViewById(R.id.image_fam3));
+
             }
             if(i==1){
                 rootView=inflater.inflate(R.layout.fragment_friend,container,false);
@@ -256,9 +259,9 @@ public class NavigationDrawerActivity extends Activity implements PlanetAdapter.
                 imageId = getResources().getIdentifier("hanin", "drawable", getActivity().getPackageName());
                 iv = ((ImageView) rootView.findViewById(R.id.image_tea));
             }
-            iv=((ImageView)rootView.findViewById(R.id.image_tea));
+            //iv=((ImageView)rootView.findViewById(R.id.image_tea));
             iv.setOnClickListener(m_nda);
-            iv.setImageResource(imageId);
+            //iv.setImageResource(imageId);
             getActivity().setTitle(planet);
             return rootView;
         }

@@ -4,7 +4,7 @@
     api-level="23"
     density="xxxhdpi"
     format="7"
-    timestamp="3047878486770"
+    timestamp="4542455922439"
     token="3272634882228392913" >
 
     <task
@@ -21,13 +21,18 @@
         duration="0" />
 
     <artifact
-        location="/Users/appcreator12/AndroidStudioProjects/Memory/Application/build/outputs/apk/Application-debug.apk"
-        type="MAIN" />
+        location="/Users/appcreator12/AndroidStudioProjects/Memory/Application/build/intermediates/res/resources-debug.ap_"
+        type="RESOURCES" />
 
-    <build timestamp="3047878486770" >
+    <build timestamp="4424291586162" >
         <artifact
             location="/Users/appcreator12/AndroidStudioProjects/Memory/Application/build/outputs/apk/Application-debug.apk"
             type="MAIN" />
+    </build>
+    <build timestamp="4542455922439" >
+        <artifact
+            location="/Users/appcreator12/AndroidStudioProjects/Memory/Application/build/intermediates/res/resources-debug.ap_"
+            type="RESOURCES" />
     </build>
 
 </instant-run>
